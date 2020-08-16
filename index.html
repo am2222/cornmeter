@@ -875,13 +875,13 @@
 
 
     <audio id="h">
-        <source src="h.mp3" type="audio/mpeg">
+        <source src="h.ogg" type="audio/mpeg">
     </audio>
     <audio id="s">
-        <source src="s.mp3" type="audio/mpeg">
+        <source src="m.wav" type="audio/mpeg">
     </audio>
     <audio id="n">
-        <source src="n.mp3" type="audio/mpeg">
+        <source src="s.wav" type="audio/mpeg">
     </audio>
 
 
@@ -1184,26 +1184,26 @@
         var prevClass;
         const cornClick = function (sender) {
             var loc = 100 - (sender.getAttribute('data-svg-origin').split(' ')[1])
+
+            if(loc<0) loc=0
+
             setValue(loc)
 
-            // h.pause();
-            // s.pause();
-            // n.pause();
             if (prevClass) {
                 style.classList.remove(prevClass);
             }
 
 
-            if (loc >= 0 & loc < 50) {
+            if (loc >= 0 & loc < 40) {
 
                 prevClass = "angry"
                 s.play();
-            } else if (loc >= 50 & loc < 60) {
+            } else if (loc >= 40 & loc < 65) {
                 prevClass = "normal"
                 n.play();
-            } else {
+            } else if(loc>65){
                 prevClass = "smile"
-                h.pause();
+                h.play();
             }
             style.classList.add(prevClass);
         }
