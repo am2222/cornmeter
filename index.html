@@ -578,7 +578,7 @@
             transition: 0.3s;
         }
 
-       
+
         .girl:before {
             content: "";
             display: block;
@@ -609,8 +609,9 @@
                 -2.8em 3.3em 0 -1em #002 inset,
                 0 0 0 0 transparent;
         }
-        .girl.normal::after{
-            box-shadow:                 
+
+        .girl.normal::after {
+            box-shadow:
                 3.5em 0.6em 0 0.2em #fff,
                 4em 1em 0 0.7em #003,
                 4.2em 1em 0 1em #fff,
@@ -641,6 +642,7 @@
                 2.5em 4em 0 2em #333,
                 0 0 0 0 transparent;
         }
+
         /* smile */
         .girl.smile::after {
             box-shadow:
@@ -677,7 +679,7 @@
         }
 
         /* angry */
-       .girl.angry::after {
+        .girl.angry::after {
             box-shadow:
                 /* eye r */
                 3.9em 0.9em 0 0.1em #fff,
@@ -871,7 +873,7 @@
 
 <body>
 
-   
+
     <audio id="h">
         <source src="h.mp3" type="audio/mpeg">
     </audio>
@@ -1187,30 +1189,44 @@
             // h.pause();
             // s.pause();
             // n.pause();
-            if(prevClass){
+            if (prevClass) {
                 style.classList.remove(prevClass);
             }
-            
 
-            if(loc>=0 & loc<50){
-                
-                prevClass="angry"
-                s.play();  
-            }else if(loc>=50 & loc<60){
-                prevClass="normal"
-                n.play();  
-            }else{
-                prevClass="smile"
+
+            if (loc >= 0 & loc < 50) {
+
+                prevClass = "angry"
+                s.play();
+            } else if (loc >= 50 & loc < 60) {
+                prevClass = "normal"
+                n.play();
+            } else {
+                prevClass = "smile"
                 h.pause();
             }
             style.classList.add(prevClass);
         }
 
+        function myEndFunction() {
+            alert('end')
+        }
+        
+        const animated = document.querySelector('.profile-card');
+        var j =0
+        animated.addEventListener('animationend', () => {
+            j++
+            if(j==5){
+                animated.setAttribute('style', 'width:40% !important;height:80% !important');
+
+            }
+        });
+
         $(document).ready(function () {
 
 
             style.classList.add("normal");
-       
+
 
         });
     </script>
